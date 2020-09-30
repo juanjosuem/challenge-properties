@@ -23,7 +23,7 @@ class DetailView extends Component {
     const address = itemFound.address;
 
     return (
-      <Carousel>
+      <Carousel className="carousel">
         {photos.map((photo) => (
           <Carousel.Item key={photo.id}>
             <img className="d-block w-100" src={photo.url} alt="First slide" />
