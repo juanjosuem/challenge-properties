@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project uses, react context to share data, react-router, bootstrap and Sass
+
+
 ## Available Scripts
 
 In the project directory, you can run:
