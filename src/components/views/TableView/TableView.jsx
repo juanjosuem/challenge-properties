@@ -1,38 +1,32 @@
-import React, { Component } from "react";
-import "./TableView.scss";
+import React, { useContext } from "react";
+import { Table } from "react-bootstrap";
 import TableHeader from "./TableHeader";
 import TableRow from "./TableRow";
 import Loader from "../../common/Loader";
 import { AppContext } from "../../../contexts/appContext";
-import { Redirect, withRouter } from "react-router-dom";
 import withSanitizedData from "../../hocs/withSanitizedData";
+import "./TableView.scss";
 
-class TableView extends Component {
-  static contextType = AppContext;
+const TableView = () => {
+  const context = useContext(AppContext);
+  if (!context) return <Loader />;
+  return (
+    <Table striped bordered hover variant="dark">
+      <TableHeader
+        headers={[
+          "Image",
+          "Address",
+          "Year Built",
+          "List Price",
+          "Monthly Rent",
+          "Gross Yield",
+        ]}
+      />
+      <tbody>
+        {context.properties.map((item) => withSanitizedData(TableRow, item))}
+      </tbody>
+    </Table>
+  );
+};
 
-  render() {
-    if (!this.context) return <Loader />;
-
-    const { properties } = this.context;
-
-    return (
-      <table className="table table-dark tableview">
-        <TableHeader
-          headers={[
-            "Image",
-            "Address",
-            "Year Built",
-            "List Price",
-            "Monthly Rent",
-            "Gross Yield",
-          ]}
-        />
-        <tbody>
-          {properties.map((item) => withSanitizedData(TableRow, item))}
-        </tbody>
-      </table>
-    );
-  }
-}
-
-export default withRouter(TableView);
+export default TableView;

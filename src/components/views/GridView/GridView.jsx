@@ -1,24 +1,18 @@
-import React, { Component } from "react";
-
+import React, { useContext } from "react";
+import GridCard from "./GridCard";
 import { AppContext } from "../../../contexts/appContext";
 import Loader from "../../common/Loader";
 import withSanitizedData from "../../hocs/withSanitizedData";
-import GridCard from "./GridCard";
 import "./GridView.scss";
 
-class GridView extends Component {
-  static contextType = AppContext;
-
-  render() {
-    if (!this.context) return <Loader />;
-
-    const { properties } = this.context;
-    return (
-      <div className="grid">
-        {properties.map((item) => withSanitizedData(GridCard, item))}
-      </div>
-    );
-  }
-}
+const GridView = () => {
+  const context = useContext(AppContext);
+  if (!context) return <Loader />;
+  return (
+    <div className="grid">
+      {context.properties.map((item) => withSanitizedData(GridCard, item))}
+    </div>
+  );
+};
 
 export default GridView;

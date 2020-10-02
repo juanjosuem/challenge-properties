@@ -1,23 +1,29 @@
 import React from "react";
+import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const TableRow = (props) => {
+const TableRow = ({
+  id,
+  fullAdress,
+  yearBuilt,
+  priceFormatted,
+  rentFormmated,
+  grossField,
+  imageUrl,
+}) => {
   return (
     <tr className="centeredv-content">
       <td>
-        <img
-          src={props.mainImageUrl}
-          className={props.mainImageUrl && "image-property"}
-          alt="property"
-        />
+        <Image src={imageUrl} roundedCircle className="image-property" />
       </td>
-      <td>{props.fullAdress}</td>
-      <td>{props.yearBuilt}</td>
-      <td>{"$" + props.priceFormatted}</td>
-      <td>{"$" + props.rentFormmated}</td>
-      <td>{props.grossField + "%"}</td>
+      <td>{fullAdress}</td>
+      <td>{yearBuilt}</td>
+      <td>{priceFormatted}</td>
+      <td>{rentFormmated}</td>
+      <td>{grossField}</td>
       <td>
-        <Link to={`/detail/${props.id}`}>
+        <Link to={`/detail/${id}`}>
           <button type="button" className="btn btn-outline-success">
             See Details
           </button>
@@ -26,4 +32,14 @@ const TableRow = (props) => {
     </tr>
   );
 };
+
+TableRow.propTypes = {
+  id: PropTypes.number,
+  fullAdress: PropTypes.string,
+  yearBuilt: PropTypes.any,
+  priceFormatted: PropTypes.string,
+  rentFormmated: PropTypes.string,
+  grossField: PropTypes.string,
+};
+
 export default TableRow;

@@ -1,43 +1,24 @@
-import React, { Component } from "react";
-import { Carousel } from "react-bootstrap";
-import { withRouter } from "react-router-dom";
+import React, { useContext } from "react";
+import { Row } from "react-bootstrap";
+import DetailGallery from "./DetailGallery";
 import { AppContext } from "../../../contexts/appContext";
 import Loader from "../../common/Loader";
+import DetailsText from "./DetailsText";
 import "./DetailView.scss";
 
-class DetailView extends Component {
-  static contextType = AppContext;
+const DetailView = ({ match }) => {
+  const context = useContext(AppContext);
+  if (!context) return <Loader />;
+  const { id } = match.params;
+  const { properties } = context;
+  const itemFound = properties.find((item) => item.id === Number(id));
 
-  render() {
-    if (!this.context) return <Loader />;
-    const {
-      params: { id },
-    } = this.props.match;
-    const { properties } = this.context;
+  return (
+    <Row>
+      <DetailGallery {...itemFound} />
+      <DetailsText {...itemFound} />
+    </Row>
+  );
+};
 
-    const itemFound = properties.find((item) => item.id == id);
-
-    if (!itemFound.resources) return <h3>No images found</h3>;
-
-    const photos = itemFound.resources.photos;
-    const address = itemFound.address;
-
-    return (
-      <Carousel className="carousel">
-        {photos.map((photo) => (
-          <Carousel.Item key={photo.id}>
-            <img className="d-block w-100" src={photo.url} alt="First slide" />
-            <Carousel.Caption className="blackbox">
-              <h3>
-                {address.address1}, {address.city}, {address.state}{" "}
-                {address.zip}
-              </h3>
-              <p>{itemFound.description}</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    );
-  }
-}
-export default withRouter(DetailView);
+export default DetailView;
