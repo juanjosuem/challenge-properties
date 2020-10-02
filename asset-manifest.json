@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/challenge-properties/static/css/main.7418545d.chunk.css",
-    "main.js": "/challenge-properties/static/js/main.d11ffc3c.chunk.js",
-    "main.js.map": "/challenge-properties/static/js/main.d11ffc3c.chunk.js.map",
+    "main.css": "/challenge-properties/static/css/main.51392859.chunk.css",
+    "main.js": "/challenge-properties/static/js/main.eaf08a4d.chunk.js",
+    "main.js.map": "/challenge-properties/static/js/main.eaf08a4d.chunk.js.map",
     "runtime-main.js": "/challenge-properties/static/js/runtime-main.af8b7517.js",
     "runtime-main.js.map": "/challenge-properties/static/js/runtime-main.af8b7517.js.map",
     "static/css/2.8aa5a7f8.chunk.css": "/challenge-properties/static/css/2.8aa5a7f8.chunk.css",
-    "static/js/2.be2cda09.chunk.js": "/challenge-properties/static/js/2.be2cda09.chunk.js",
-    "static/js/2.be2cda09.chunk.js.map": "/challenge-properties/static/js/2.be2cda09.chunk.js.map",
+    "static/js/2.54118ee8.chunk.js": "/challenge-properties/static/js/2.54118ee8.chunk.js",
+    "static/js/2.54118ee8.chunk.js.map": "/challenge-properties/static/js/2.54118ee8.chunk.js.map",
     "index.html": "/challenge-properties/index.html",
-    "precache-manifest.9a90f2dcad11fe306ef40963440e0bc7.js": "/challenge-properties/precache-manifest.9a90f2dcad11fe306ef40963440e0bc7.js",
+    "precache-manifest.9b1f94b1102391a811a5c383f65fb934.js": "/challenge-properties/precache-manifest.9b1f94b1102391a811a5c383f65fb934.js",
     "service-worker.js": "/challenge-properties/service-worker.js",
     "static/css/2.8aa5a7f8.chunk.css.map": "/challenge-properties/static/css/2.8aa5a7f8.chunk.css.map",
-    "static/css/main.7418545d.chunk.css.map": "/challenge-properties/static/css/main.7418545d.chunk.css.map",
-    "static/js/2.be2cda09.chunk.js.LICENSE.txt": "/challenge-properties/static/js/2.be2cda09.chunk.js.LICENSE.txt"
+    "static/css/main.51392859.chunk.css.map": "/challenge-properties/static/css/main.51392859.chunk.css.map",
+    "static/js/2.54118ee8.chunk.js.LICENSE.txt": "/challenge-properties/static/js/2.54118ee8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.af8b7517.js",
     "static/css/2.8aa5a7f8.chunk.css",
-    "static/js/2.be2cda09.chunk.js",
-    "static/css/main.7418545d.chunk.css",
-    "static/js/main.d11ffc3c.chunk.js"
+    "static/js/2.54118ee8.chunk.js",
+    "static/css/main.51392859.chunk.css",
+    "static/js/main.eaf08a4d.chunk.js"
   ]
 }
