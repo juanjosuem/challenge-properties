@@ -1,28 +1,26 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 
 const baseUrl =
   "https://samplerspubcontent.blob.core.windows.net/public/properties.json";
 
 export const AppContext = React.createContext();
 
-export class AppContextProvider extends Component {
-  state = {
-    data: null,
-  };
-  async componentDidMount() {
-    const response = await fetch(baseUrl);
-    const data = await response.json();
-    this.setState((state, props) => {
-      return { data };
-    });
-  }
-  render() {
-    return (
-      <AppContext.Provider value={this.state.data}>
-        <div className="container-fluid">{this.props.children}</div>
-      </AppContext.Provider>
-    );
-  }
-}
+export const AppContextProvider = (props) => {
+  const [data, setData] = useState(null);
 
-export const AppContextConsumer = AppContext.Consumer;
+  useEffect(() => {
+    async function fecthData() {
+      const response = await fetch(baseUrl);
+      const data = await response.json();
+      setData(data);
+    }
+    fecthData();
+  }, []);
+
+  return (
+    <AppContext.Provider value={data}>
+      <Container fluid>{props.children}</Container>
+    </AppContext.Provider>
+  );
+};
